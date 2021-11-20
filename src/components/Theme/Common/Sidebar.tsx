@@ -13,6 +13,7 @@ const SidebarContainer = styled.div`
   align-items: center;
   padding: 16px 0;
   min-height: 100vh;
+  flex: 0 0 auto;
 
   /* debugging purposes */
   outline: 2px dashed red;
