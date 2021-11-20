@@ -1,12 +1,22 @@
 import styled from 'styled-components'
 
 const Sidebar = () => (
-  <SidebarContainer>
-    <SidebarTop />
-    <SidebarBottom />
-  </SidebarContainer>
+  <SidebarOuterContainer>
+    <SidebarInnerContainer>
+      <SidebarTop />
+      <SidebarBottom />
+    </SidebarInnerContainer>
+  </SidebarOuterContainer>
 )
-const SidebarContainer = styled.div`
+const SidebarOuterContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+`
+const SidebarInnerContainer = styled.div`
+  position: sticky;
+  bottom: 0;
+
   width: 100px;
   display: flex;
   flex-flow: column nowrap;

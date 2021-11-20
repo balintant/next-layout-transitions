@@ -9,7 +9,9 @@ const debugStyle = (color: string) => `
 
 const MainLayout = (props: PropsWithChildren<object>) => (
   <LayoutContainer>
-    <Sidebar />
+    <SidebarContainer>
+      <Sidebar />
+    </SidebarContainer>
     <ContentContainer>
       <Content>{props.children}</Content>
     </ContentContainer>
@@ -18,6 +20,9 @@ const MainLayout = (props: PropsWithChildren<object>) => (
 const LayoutContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
+`
+const SidebarContainer = styled.div`
+  z-index: -1;
 `
 const ContentContainer = styled.div`
   flex: 1 1 auto;

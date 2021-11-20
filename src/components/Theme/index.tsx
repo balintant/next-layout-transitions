@@ -2,6 +2,7 @@ import { AnimatePresence, HTMLMotionProps, motion } from 'framer-motion'
 import { NextPage } from 'next'
 import { AppProps } from 'next/dist/shared/lib/router/router'
 import { FunctionComponent } from 'react'
+import styled from 'styled-components'
 import MainLayout from './MainLayout'
 import OverlayLayout from './OverlayLayout'
 
@@ -38,16 +39,10 @@ const LayoutMotionProps: {
   [Layout.Overlay]: {
     variants: {
       hidden: {
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: 'calc(-100vw + 100px)', // note: (100px == sidebar-width), use css vars?
-        width: '100vw',
+        x: 'calc(-100vw + 100px)',
       },
       visible: {
-        position: 'absolute',
-        left: 0,
-        width: '100vw',
+        x: '0px',
       },
     },
     initial: 'hidden',
@@ -66,12 +61,22 @@ export const LayoutWrapper = ({ Component, pageProps }: AppPropsWithTheme) => {
   const motionProps = LayoutMotionProps[layoutId]
 
   return (
-    <AnimatePresence initial={false}>
-      <motion.div key={layoutId} {...motionProps}>
-        <LayoutComponent>
-          <Component {...pageProps} />
-        </LayoutComponent>
-      </motion.div>
-    </AnimatePresence>
+    <Container>
+      <AnimatePresence initial={false}>
+        <motion.div key={layoutId} {...motionProps}>
+          <LayoutComponent>
+            <Component {...pageProps} />
+          </LayoutComponent>
+        </motion.div>
+      </AnimatePresence>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  display: grid;
+  grid-template-areas: 'content';
+  > * {
+    grid-area: content;
+  }
+`
