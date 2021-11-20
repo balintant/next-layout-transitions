@@ -12,7 +12,7 @@ const Main: NextPageWithLayout = () => (
 
     <main>
       <h1>This is how the Main looks like</h1>
-      <Link href="/overlay">Check out the Overlay too!</Link>
+      <Link href="/overlays/1">Check out the Overlay too!</Link>
     </main>
   </>
 )

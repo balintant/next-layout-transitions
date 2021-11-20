@@ -18,6 +18,7 @@ const OverlayLayout = (props: PropsWithChildren<object>) => (
 const LayoutContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
+  background: #ffffff;
 `
 const ContentContainer = styled.div`
   flex: 1 1 auto;

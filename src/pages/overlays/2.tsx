@@ -11,7 +11,7 @@ const Modal: NextPageWithLayout = () => (
     </Head>
 
     <main>
-      <h1>This is how the Overlay looks like</h1>
+      <h1>ANOTHER OVERLAY?!</h1>
       <Link href="/">Check out the Main too!</Link>
     </main>
   </>
